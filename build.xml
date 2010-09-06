@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<project default="download">
+	<target name="download">
+		<get src="http://www.topcoder.com/contest/classes/ContestApplet.jar" dest="ContestApplet.jar"/>
+	</target>
+</project>
