@@ -197,9 +197,7 @@ public abstract class EntryPoint {
 	 *            been linked to the appropriate element. Simply call the toHTML
 	 *            method with the appropriate language to render to.
 	 */
-	public abstract void setProblemComponent(
-			ProblemComponentModel componentModel, Language language,
-			Renderer renderer);
+	public abstract void setProblemComponent(ProblemComponentModel componentModel, Language language, Renderer renderer);
 
 	/**
 	 * Called when a new problem is opened and the TopCoder server has stored

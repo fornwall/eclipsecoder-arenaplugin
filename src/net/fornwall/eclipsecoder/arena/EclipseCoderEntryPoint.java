@@ -32,7 +32,7 @@ import com.topcoder.shared.problem.TestCase;
 
 public class EclipseCoderEntryPoint extends EntryPoint {
 
-	private static final Map<String, Class<?>> classMap = new HashMap<String, Class<?>>();
+	private static final Map<String, Class<?>> classMap = new HashMap<>();
 
 	static {
 		classMap.put("char", Character.class);
@@ -76,14 +76,14 @@ public class EclipseCoderEntryPoint extends EntryPoint {
 		Class<?> returnType = toClass(problem.getReturnType());
 		result.setReturnType(returnType);
 
-		List<Class<?>> parameterTypes = new ArrayList<Class<?>>();
+		List<Class<?>> parameterTypes = new ArrayList<>();
 		for (DataType dataType : problem.getParamTypes()) {
 			parameterTypes.add(toClass(dataType));
 		}
 		result.setParameterTypes(parameterTypes);
 		result.setParameterNames(Arrays.asList(problem.getParamNames()));
 
-		List<ProblemStatement.TestCase> testCases = new ArrayList<ProblemStatement.TestCase>();
+		List<ProblemStatement.TestCase> testCases = new ArrayList<>();
 		for (TestCase testCase : problem.getTestCases()) {
 			Object output = ProblemStatement.parseType(returnType, testCase.getOutput());
 			Object[] input = new Object[testCase.getInput().length];
@@ -137,6 +137,7 @@ public class EclipseCoderEntryPoint extends EntryPoint {
 
 	public void appendLogMessage(final String message) {
 		Runnable runnable = new Runnable() {
+			@Override
 			public void run() {
 				// logArea.append(dateFormat.format(new Date()) + " " + message
 				// + "\n");
@@ -157,6 +158,7 @@ public class EclipseCoderEntryPoint extends EntryPoint {
 	public JPanel getEditorPanel() {
 		return editorPanel;
 	}
+
 	@Override
 	public String getSource() {
 		try {
@@ -234,6 +236,7 @@ public class EclipseCoderEntryPoint extends EntryPoint {
 						renderer);
 
 				Utilities.runInDisplayThread(new Runnable() {
+					@Override
 					public void run() {
 						final StringBuffer logString = new StringBuffer();
 
@@ -257,6 +260,7 @@ public class EclipseCoderEntryPoint extends EntryPoint {
 	 */
 	@Override
 	public void setSource(String source) {
+		// Ignore this event for now.
 	}
 
 	/**
@@ -272,6 +276,7 @@ public class EclipseCoderEntryPoint extends EntryPoint {
 	 */
 	@Override
 	public void stopUsing() {
+		// Ignore this event for now.
 	}
 
 }
